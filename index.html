@@ -155,6 +155,42 @@ img{max-width:100%}
 .sec-hd p{margin-top:8px;color:var(--g700);font-size:17px}
 @media (max-width:720px){.sec{padding-block:64px}.sec-hd{margin-bottom:28px}}
 
+/* 바로가기 타일 — 첫 화면 아래에 걸쳐 크게 배치 */
+.quick{position:relative;z-index:5;margin-top:-56px}
+.quick-in{background:#fff;border:1px solid var(--g200);border-radius:var(--r-xl);box-shadow:0 18px 40px rgba(3,22,58,.14);padding:20px 22px 22px}
+.quick-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--p600);margin-bottom:14px}
+.quick-h::before{content:"";width:4px;height:14px;border-radius:2px;background:var(--p500)}
+.quick-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.qk{position:relative;display:flex;flex-direction:column;gap:12px;padding:18px 16px;border-radius:var(--r-lg);background:var(--g50);border:1px solid transparent;text-decoration:none;color:var(--g900);transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}
+.qk-ic{width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--p100);color:var(--p600);display:grid;place-items:center;transition:background .18s,color .18s,border-color .18s}
+.qk-ic svg{width:24px;height:24px}
+.qk-t b{display:block;font-size:18px;line-height:1.35}
+.qk-t small{display:block;font-size:13px;color:var(--g500);margin-top:2px}
+.qk-go{position:absolute;right:14px;top:16px;font-size:18px;color:var(--g300);transition:transform .18s,color .18s}
+.qk:hover,.qk:focus-visible{background:var(--p500);border-color:var(--p500);transform:translateY(-3px);box-shadow:0 10px 22px rgba(37,110,244,.28)}
+.qk:hover .qk-ic,.qk:focus-visible .qk-ic{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff}
+.qk:hover b,.qk:focus-visible b{color:#fff}
+.qk:hover small,.qk:focus-visible small{color:#D8E5FD}
+.qk:hover .qk-go,.qk:focus-visible .qk-go{color:#fff;transform:translateX(3px)}
+.qk.on{border-color:var(--p300);background:var(--p50)}
+#about{padding-top:72px}
+@media (max-width:1080px){.quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){
+  .quick{margin-top:-28px}
+  .quick-in{padding:14px;box-shadow:0 10px 24px rgba(3,22,58,.12)}
+  .quick-h{margin-bottom:10px}
+  .quick-grid{gap:8px}
+  .qk{padding:12px 10px;gap:8px;align-items:center;text-align:center}
+  .qk-ic{width:38px;height:38px;border-radius:10px}
+  .qk-ic svg{width:20px;height:20px}
+  .qk-t b{font-size:15px}
+  .qk-t small{display:none}
+  .qk-go{display:none}
+  #about{padding-top:40px}
+}
+.hero .wrap{padding-bottom:136px}
+@media (max-width:720px){.hero .wrap{padding-bottom:64px}}
+
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px}
 .vm{display:flex;flex-direction:column;gap:16px}
@@ -535,6 +571,13 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
     </div>
   </section>
 
+  <nav class="quick" aria-label="바로가기">
+    <div class="wrap"><div class="quick-in">
+      <p class="quick-h">바로가기</p>
+      <div class="quick-grid"><a class="qk" href="#about"><span class="qk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span class="qk-t"><b>회사개요</b><small>비전 · 기업 정보</small></span><span class="qk-go" aria-hidden="true">→</span></a><a class="qk" href="#business"><span class="qk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></span><span class="qk-t"><b>사업영역</b><small>4개 핵심 사업</small></span><span class="qk-go" aria-hidden="true">→</span></a><a class="qk" href="#service"><span class="qk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></svg></span><span class="qk-t"><b>프차톡</b><small>AI 가맹 상담</small></span><span class="qk-go" aria-hidden="true">→</span></a><a class="qk" href="#references"><span class="qk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg></span><span class="qk-t"><b>주요 실적</b><small>기관 · 파트너</small></span><span class="qk-go" aria-hidden="true">→</span></a><a class="qk" href="#location"><span class="qk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="qk-t"><b>오시는 길</b><small>지도 · 출입 안내</small></span><span class="qk-go" aria-hidden="true">→</span></a><a class="qk" href="#organization"><span class="qk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span><span class="qk-t"><b>조직도</b><small>조직 구성</small></span><span class="qk-go" aria-hidden="true">→</span></a></div>
+    </div></div>
+  </nav>
+
   <section class="sec" id="about">
     <div class="wrap">
       <div class="sec-hd">
@@ -800,7 +843,7 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
   window.addEventListener('scroll',sc,{passive:true}); sc();
 
   // 메뉴 현재 위치 표시
-  var links=[].slice.call(document.querySelectorAll('.gnb a, .mnav a'));
+  var links=[].slice.call(document.querySelectorAll('.gnb a, .mnav a, .qk'));
   if('IntersectionObserver' in window){
     var so=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) links.forEach(function(a){ var on=a.getAttribute('href')==='#'+e.target.id; a.classList.toggle('on',on); if(on && a.parentNode.classList.contains('mnav')){ var n=a.parentNode; n.scrollTo({left:a.offsetLeft-n.clientWidth/2+a.offsetWidth/2,behavior:'smooth'}); } }); }); },{rootMargin:'-45% 0px -50% 0px'});
     links.forEach(function(a){ var s=document.querySelector(a.getAttribute('href')); if(s) so.observe(s); });
