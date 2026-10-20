@@ -308,6 +308,119 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
 .ft .copy{margin-top:16px;font-size:13px;color:var(--g500)}
 .ft-links{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start}
 
+/* =========================================================
+   모바일 전용 정리 (720px 이하) — PC 화면에는 영향 없음
+   ========================================================= */
+.mnav{display:none}
+@media (max-width:720px){
+  html{scroll-padding-top:112px}
+  body{font-size:16px}
+  .util{display:none}
+  .hd .wrap{height:56px}
+  .logo b{font-size:20px}
+  .mnav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 16px 10px;-webkit-overflow-scrolling:touch}
+  .mnav::-webkit-scrollbar{display:none}
+  .mnav a{flex:none;height:34px;display:inline-flex;align-items:center;padding:0 14px;border-radius:9999px;background:var(--g50);border:1px solid var(--g100);font-size:14px;font-weight:700;color:var(--g700);text-decoration:none}
+  .mnav a.on{background:var(--p500);border-color:var(--p500);color:#fff}
+
+  /* 첫 화면 */
+  .hero .wrap{padding-block:44px 40px;gap:28px}
+  .chip{font-size:16px}
+  .chip::before{width:32px}
+  .hero h1{font-size:34px;margin-top:16px}
+  .hero .lead{font-size:16px;margin-top:16px}
+  .hero .acts{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero .acts .btn{height:48px;padding:0 12px;font-size:15px}
+  .facts{display:none}
+
+  /* 섹션 공통 */
+  .sec{padding-block:48px}
+  .sec-hd{margin-bottom:20px}
+  .sec-hd h2{font-size:24px;line-height:1.4}
+  .sec-hd p{font-size:15px}
+
+  /* 회사개요 */
+  .about{gap:16px}
+  .vm{gap:10px}
+  .vm div{padding:16px 18px}
+  .vm small{font-size:13px}
+  .vm p{font-size:17px;margin-top:4px}
+  .tbl,.tbl tbody,.tbl tr,.tbl th,.tbl td{display:block;width:100%;height:auto}
+  .tbl tr{padding:12px 0;border-bottom:1px solid var(--g200)}
+  .tbl th,.tbl td{border:0;padding:0 4px;background:none}
+  .tbl th{font-size:13px;color:var(--g500);margin-bottom:2px}
+  .tbl td{font-size:16px}
+
+  /* 사업영역 */
+  .biz{gap:10px}
+  .bz{padding:18px;grid-template-columns:40px 1fr;gap:14px;border-radius:var(--r-lg)}
+  .bz .ic{width:40px;height:40px}
+  .bz .ic svg{width:22px;height:22px}
+  .bz h3{font-size:19px}
+  .bz p{font-size:15px;margin-top:4px}
+  .tags{margin-top:10px}
+
+  /* 프차톡 */
+  .svc-l{padding:24px 20px}
+  .svc-l h3{font-size:24px}
+  .svc-l p{font-size:15px}
+  .svc-l ul{grid-template-columns:1fr;gap:6px;margin-top:16px}
+  .svc-l .btn{margin-top:20px;width:100%}
+  .svc-r{padding:16px;gap:8px}
+  .svc-r div{padding:14px}
+  .svc-r b{font-size:28px}
+  .svc-r b small{font-size:15px}
+  .svc-r span{font-size:13px}
+
+  /* 주요 실적 */
+  .ref-group+.ref-group{margin-top:28px}
+  .ref-label{font-size:17px}
+  .ref-btn{width:36px;height:36px}
+  .logos.flow{-webkit-mask-image:none;mask-image:none}
+  .logo-c{min-height:84px;padding:14px 8px}
+  .logo-c b{font-size:15px}
+  .logo-c small{font-size:12px}
+
+  /* 언론보도 */
+  .press{gap:10px}
+  .news{padding:20px;border-radius:var(--r-lg)}
+  .news-title{font-size:18px}
+  .news-sum{font-size:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* 오시는 길 */
+  .loc{gap:12px}
+  .addr{padding:18px}
+  .addr p{font-size:18px}
+  .addr p span{font-size:15px}
+  .addr .row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .addr .row .btn{padding:0 6px;font-size:14px}
+  .ways{padding:2px 18px}
+  .way{padding:12px 0}
+  .floor{font-size:14px}
+
+  /* 조직도 */
+  .ceo{padding:12px 28px}
+  .ceo b{font-size:18px}
+  .org-v{height:20px}
+  .teams{gap:10px;padding-top:10px}
+  .tm h3{font-size:17px;padding:10px}
+  .tm ul{padding:2px 16px 6px}
+  .tm li{padding:9px 0}
+  .tm li b{font-size:15px}
+  .tm li span{font-size:13px}
+
+  /* 하단 문의 */
+  .band{padding-block:44px}
+  .band .wrap{gap:20px}
+  .msg{min-height:0;margin-top:6px}
+  .band h2{font-size:24px}
+  .band p{font-size:15px}
+  .share{margin-top:16px}
+  .contact{gap:8px}
+  .ct{padding:14px 16px}
+  .ct b{font-size:16px}
+  footer{padding-block:28px}
+}
 /* 모바일 하단 고정 버튼 (회사소개서 · 오시는 길 · 전화) */
 .mbar{display:none}
 @media (max-width:720px){
@@ -350,6 +463,9 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
     </ul>
     <a class="btn btn-pri btn-sm hd-cta" href="#contact-band">문의하기</a>
   </div>
+  <nav class="mnav" aria-label="섹션 바로가기">
+    <a href="#about">회사개요</a><a href="#business">사업영역</a><a href="#service">프차톡</a><a href="#references">주요 실적</a><a href="#press">언론보도</a><a href="#location">오시는 길</a><a href="#organization">조직도</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -643,9 +759,9 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
   window.addEventListener('scroll',sc,{passive:true}); sc();
 
   // 메뉴 현재 위치 표시
-  var links=[].slice.call(document.querySelectorAll('.gnb a'));
+  var links=[].slice.call(document.querySelectorAll('.gnb a, .mnav a'));
   if('IntersectionObserver' in window){
-    var so=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) links.forEach(function(a){ a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id); }); }); },{rootMargin:'-45% 0px -50% 0px'});
+    var so=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) links.forEach(function(a){ var on=a.getAttribute('href')==='#'+e.target.id; a.classList.toggle('on',on); if(on && a.parentNode.classList.contains('mnav')){ var n=a.parentNode; n.scrollTo({left:a.offsetLeft-n.clientWidth/2+a.offsetWidth/2,behavior:'smooth'}); } }); }); },{rootMargin:'-45% 0px -50% 0px'});
     links.forEach(function(a){ var s=document.querySelector(a.getAttribute('href')); if(s) so.observe(s); });
   }
 
