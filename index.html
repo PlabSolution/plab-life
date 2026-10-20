@@ -259,7 +259,7 @@ img{max-width:100%}
 .way h3{font-size:17px}
 .way p{font-size:15px;color:var(--g700)}
 .way p b{color:var(--g900)}
-.floor{font-size:15px;color:var(--g700);background:var(--s50);border-radius:var(--r-md);padding:12px 16px}
+.floor{font-size:15px;color:var(--g700);background:#fff;border:1px solid var(--g200);border-radius:var(--r-md);padding:12px 16px}
 .floor b{color:var(--s700)}
 @media (max-width:900px){.loc{grid-template-columns:1fr}}
 
@@ -297,6 +297,18 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
 .ft .copy{margin-top:16px;font-size:13px;color:var(--g500)}
 .ft-links{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start}
 
+/* 모바일 하단 고정 버튼 (회사소개서 · 오시는 길 · 전화) */
+.mbar{display:none}
+@media (max-width:720px){
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--g200);box-shadow:0 -4px 16px rgba(30,33,36,.06);transition:transform .25s}
+  .mbar.away{transform:translateY(110%)}
+  .mbar a{height:48px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:var(--r-md);text-decoration:none;font-size:15px;font-weight:700;border:1px solid var(--g300);color:var(--g900);background:#fff}
+  .mbar a svg{width:18px;height:18px;flex:none}
+  .mbar a.pri{background:var(--p500);border-color:var(--p500);color:#fff}
+  .mbar a[hidden]{display:none}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+  .hd-cta{display:none}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
@@ -322,8 +334,8 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
       <li><a href="#business">사업영역</a></li>
       <li><a href="#service">프차톡</a></li>
       <li><a href="#references">주요 실적</a></li>
-      <li><a href="#organization">조직도</a></li>
       <li><a href="#location">오시는 길</a></li>
+      <li><a href="#organization">조직도</a></li>
     </ul>
     <a class="btn btn-pri btn-sm hd-cta" href="#contact-band">문의하기</a>
   </div>
@@ -499,33 +511,16 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
     </div>
   </section>
 
-  <section class="sec alt" id="organization">
+  <section class="sec alt" id="location">
     <div class="wrap">
       <div class="sec-hd">
-        <div><p class="kicker"><span>06</span>조직도</p><h2>조직 구성</h2></div>
-      </div>
-      <div class="org">
-        <div class="ceo"><small>대표이사</small><b>장진호</b></div>
-        <div class="org-v"></div>
-        <div class="teams">
-          <div class="tm"><h3>운영기획팀<small>경영지원 · 사업운영</small></h3><ul><li><b>운영기획</b><span>사업 운영, 정부지원사업 관리</span></li><li><b>경영지원</b><span>회계 · 인사 · 총무</span></li></ul></div>
-          <div class="tm"><h3>사업본부<small>영업 · 소상공인 · 마케팅</small></h3><ul><li><b>영업팀</b><span>가맹영업 전속대행, 프차톡 영업</span></li><li><b>소상공인팀</b><span>소상공인 AI · 지원사업, 교육</span></li><li><b>마케팅팀</b><span>브랜드 · 온라인 마케팅</span></li></ul></div>
-          <div class="tm"><h3>개발팀<small>AI 서비스 개발</small></h3><ul><li><b>서비스 개발</b><span>프차톡 · 창업 플랫폼 개발 및 운영</span></li></ul></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="location">
-    <div class="wrap">
-      <div class="sec-hd">
-        <div><p class="kicker"><span>07</span>오시는 길</p><h2>찾아오시는 길</h2></div>
+        <div><p class="kicker"><span>06</span>오시는 길</p><h2>찾아오시는 길</h2></div>
       </div>
       <div class="loc">
         <div class="map">
           <div class="map-box" id="kmap">
             <div id="daumRoughmapContainer1792482336618" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-            <p class="map-empty">지도를 불러오는 중입니다.<br>표시되지 않으면 오른쪽 지도 버튼을 이용해 주세요.</p>
+            <p class="map-empty">지도를 불러오는 중입니다.<br>표시되지 않으면 네이버 지도·카카오맵 버튼을 이용해 주세요.</p>
           </div>
         </div>
         <div class="loc-info">
@@ -565,6 +560,23 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
     </div>
   </section>
 
+  <section class="sec" id="organization">
+    <div class="wrap">
+      <div class="sec-hd">
+        <div><p class="kicker"><span>07</span>조직도</p><h2>조직 구성</h2></div>
+      </div>
+      <div class="org">
+        <div class="ceo"><small>대표이사</small><b>장진호</b></div>
+        <div class="org-v"></div>
+        <div class="teams">
+          <div class="tm"><h3>운영기획팀<small>경영지원 · 사업운영</small></h3><ul><li><b>운영기획</b><span>사업 운영, 정부지원사업 관리</span></li><li><b>경영지원</b><span>회계 · 인사 · 총무</span></li></ul></div>
+          <div class="tm"><h3>사업본부<small>영업 · 소상공인 · 마케팅</small></h3><ul><li><b>영업팀</b><span>가맹영업 전속대행, 프차톡 영업</span></li><li><b>소상공인팀</b><span>소상공인 AI · 지원사업, 교육</span></li><li><b>마케팅팀</b><span>브랜드 · 온라인 마케팅</span></li></ul></div>
+          <div class="tm"><h3>개발팀<small>AI 서비스 개발</small></h3><ul><li><b>서비스 개발</b><span>프차톡 · 창업 플랫폼 개발 및 운영</span></li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="band" id="contact-band">
     <div class="wrap">
       <div>
@@ -584,6 +596,12 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
     </div>
   </section>
 </main>
+
+<nav class="mbar" id="mbar" aria-label="빠른 메뉴">
+  <a class="pri" id="mb-pdf" href="#" download hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>회사소개서</a>
+  <a id="mb-loc" href="#location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>오시는 길</a>
+  <a id="mb-tel" href="#" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>전화</a>
+</nav>
 
 <footer>
   <div class="wrap ft">
@@ -722,6 +740,17 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
   [].forEach.call(document.querySelectorAll('[data-pdf]'),function(x){ x.addEventListener('click',function(){ track('brochure_download'); }); });
   [].forEach.call(document.querySelectorAll('#ct-phone,[data-tel]'),function(x){ x.addEventListener('click',function(){ track('contact_call'); }); });
   [].forEach.call(document.querySelectorAll('#ct-mail,[data-mail]'),function(x){ x.addEventListener('click',function(){ track('contact_email'); }); });
+
+  // 모바일 하단 고정 버튼: 값 연결 + 하단 문의 영역에서는 겹치지 않게 숨김
+  (function(){
+    var mp=document.getElementById('mb-pdf'), mt=document.getElementById('mb-tel'), bar=document.getElementById('mbar');
+    if(c.pdf){ mp.href=c.pdf; mp.hidden=false; mp.addEventListener('click',function(){ track('brochure_download'); }); }
+    if(c.phone){ mt.href='tel:'+c.phone.replace(/[^0-9+]/g,''); mt.hidden=false; mt.addEventListener('click',function(){ track('contact_call'); }); }
+    var band=document.getElementById('contact-band');
+    if(band && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ bar.classList.toggle('away',es[0].isIntersecting); },{threshold:.15}).observe(band);
+    }
+  })();
 
   function fallback(t){ var x=document.createElement('textarea'); x.value=t; document.body.appendChild(x); x.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(x); }
   function copy(t){ if(navigator.clipboard&&navigator.clipboard.writeText){ return navigator.clipboard.writeText(t).catch(function(){fallback(t);}); } fallback(t); return Promise.resolve(); }
