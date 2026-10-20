@@ -241,7 +241,7 @@ img{max-width:100%}
 /* location */
 .loc{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:stretch}
 .map{background:#fff;border:1px solid var(--g200);border-radius:var(--r-xl);overflow:hidden;display:flex;flex-direction:column}
-.map-box{position:relative;flex:1;min-height:300px;background:var(--g50)}
+.map-box{position:relative;flex:1;min-height:300px;background:var(--g50);overflow:hidden}
 .map-box .root_daum_roughmap{width:100%!important;border:0!important}
 .map-box .root_daum_roughmap .wrap_map{width:100%!important}
 .map-empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:15px;color:var(--g500);padding:16px;pointer-events:none}
@@ -546,8 +546,11 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
           var box=document.getElementById('kmap');
           var w=Math.max(280,Math.round(box.getBoundingClientRect().width||640));
           var info=document.querySelector('.loc-info');
+          var BAR=34;  // 지도 아래 'kakaomap · 길찾기' 표시줄 높이 (그 아래 주소·전화 칸은 잘라냄)
           var side=window.innerWidth>900 && info ? Math.round(info.getBoundingClientRect().height)-2 : 0;  // 오른쪽 안내 영역과 높이 맞춤
-          var h=side>=300 ? side : (w<600?320:420);
+          var total=side>=300 ? side : (w<600?320:420);
+          var h=total-BAR;
+          box.style.height=total+'px'; box.style.minHeight='0'; box.style.flex='none';
           try{
             new daum.roughmap.Lander({"timestamp":"1792482336618","key":"3kryqfdxdiy","mapWidth":String(w),"mapHeight":String(h)}).render();
             var tries=0,t=setInterval(function(){
