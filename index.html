@@ -209,6 +209,17 @@ section.block{padding:130px 0;border-top:1px solid var(--line);position:relative
 .floor b{color:var(--gold-hi);font-weight:500}
 @media (max-width:860px){.loc{grid-template-columns:1fr;gap:44px}}
 
+/* kakao map */
+.map-wrap{margin-top:56px;position:relative;border:1px solid var(--line-strong);padding:10px;background:var(--bg-2)}
+.map-wrap::before{content:"";position:absolute;inset:4px;border:1px solid var(--line);pointer-events:none;z-index:1}
+.map-box{position:relative;width:100%;min-height:300px;overflow:hidden;background:var(--panel)}
+.map-box .root_daum_roughmap{width:100%!important;border:0!important;filter:invert(.92) hue-rotate(180deg) saturate(.55) sepia(.18) brightness(.92) contrast(.95)}
+.map-box .root_daum_roughmap .wrap_map{width:100%!important}
+.map-empty{position:absolute;inset:0;display:grid;place-items:center;font-size:.86rem;color:var(--muted);text-align:center;padding:20px;pointer-events:none}
+.map-box.ready .map-empty{display:none}
+.map-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0 4px 2px;font-size:.8rem;color:var(--muted)}
+.map-cap b{color:var(--gold-hi);font-weight:500}
+
 /* share / contact */
 .cta{padding:120px 0;text-align:center;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,.12),transparent 60%)}
 .cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.6vw,2.6rem);color:var(--ivory);line-height:1.4}
@@ -354,14 +365,14 @@ footer{padding:44px 0 calc(44px + env(safe-area-inset-bottom,0px));border-top:1p
           <div class="logo"><b>피자알볼로</b><small>가맹영업 대행</small></div>
           <div class="logo"><b>샤이바나</b><small>프차톡 도입</small></div>
           <div class="logo"><b>콩불</b><small>창업 컨설팅</small></div>
-          <div class="logo"><b>1830피자</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>베러댄와플</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>쿠엔즈버킷</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>팔공티</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>쟁반집</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>맛깔참죽</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>푸드얍</b><small>가맹영업 대행</small></div>
-          <div class="logo"><b>베브릿지</b><small>가맹영업 대행</small></div>
+          <div class="logo"><b>1830피자</b><small>교육</small></div>
+          <div class="logo"><b>베러댄와플</b><small>교육</small></div>
+          <div class="logo"><b>쿠엔즈버킷</b><small>교육</small></div>
+          <div class="logo"><b>팔공티</b><small>교육</small></div>
+          <div class="logo"><b>쟁반집</b><small>교육</small></div>
+          <div class="logo"><b>맛깔참죽</b><small>교육</small></div>
+          <div class="logo"><b>푸드얍</b><small>교육</small></div>
+          <div class="logo"><b>베브릿지</b><small>교육</small></div>
         </div>
       </div>
     </div>
@@ -451,6 +462,28 @@ footer{padding:44px 0 calc(44px + env(safe-area-inset-bottom,0px));border-top:1p
           <p class="floor">입장 후 엘리베이터로 <b>8층 810호</b>까지 오시면 됩니다.</p>
         </div>
       </div>
+      <div class="map-wrap rv">
+        <div class="map-box" id="kmap">
+          <div id="daumRoughmapContainer1792482336618" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+          <p class="map-empty">지도를 불러오는 중입니다.<br>표시되지 않으면 위의 지도 버튼을 이용해 주세요.</p>
+        </div>
+        <p class="map-cap"><span><b>PLAB</b> · 동국대학교 충무로 본관 810호</span><span>지도 제공 카카오맵</span></p>
+      </div>
+      <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://t1.kakaocdn.net/kakaomapweb/roughmap/loader/prod/roughmapLoader.js"></script>
+      <script charset="UTF-8">
+        (function(){
+          var box=document.getElementById('kmap');
+          var w=Math.max(280,Math.round(box.getBoundingClientRect().width||640));
+          var h=w<600?320:440;
+          try{
+            new daum.roughmap.Lander({"timestamp":"1792482336618","key":"3kryqfdxdiy","mapWidth":String(w),"mapHeight":String(h)}).render();
+            var tries=0,t=setInterval(function(){
+              if(box.querySelector('.root_daum_roughmap *')){box.classList.add('ready');clearInterval(t);}
+              if(++tries>40)clearInterval(t);
+            },250);
+          }catch(e){}
+        })();
+      </script>
     </div>
   </section>
 
