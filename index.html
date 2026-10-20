@@ -19,6 +19,28 @@
 <link rel="canonical" href="https://plab.life/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0d0c0a">
+
+<script>
+window.PLAB = {
+  phone: "010-6292-0097",            
+  email: "plab@plabsolution.com",            
+  pdf:   "plab-company-profile.pdf",            
+  ga:    "G-0WK2VZDBT5"            
+};
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"주식회사 프랩","alternateName":["PLAB","프랩"],"url":"https://plab.life/","logo":"https://plab.life/og-image.png","sameAs":["https://www.plabsolution.com/"],"description":"프랜차이즈 본사의 가맹 확장부터 예비창업자 교육, 소상공인의 AI 도입까지 창업의 시작과 성장을 함께 설계하는 비즈니스 연구소","address":{"@type":"PostalAddress","streetAddress":"퇴계로36길 2 동국대학교 충무로 본관 810호","addressLocality":"중구","addressRegion":"서울특별시","addressCountry":"KR"}}
+</script>
+<!-- 검색 등록 확인용 태그: 발급받은 값을 content="" 안에 붙여넣기 -->
+<meta name="naver-site-verification" content="">
+<meta name="google-site-verification" content="">
+<!-- ============================================================ -->
+<script>
+(function(){ var id=(window.PLAB||{}).ga; if(!id) return;
+  var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id); document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments);}; gtag('js',new Date()); gtag('config',id);
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap">
@@ -220,6 +242,19 @@ section.block{padding:130px 0;border-top:1px solid var(--line);position:relative
 .map-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0 4px 2px;font-size:.8rem;color:var(--muted)}
 .map-cap b{color:var(--gold-hi);font-weight:500}
 
+/* contact */
+.contact{margin:44px auto 0;max-width:760px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));border:1px solid var(--line-strong)}
+.contact[hidden]{display:none}
+.ct{display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 18px;text-decoration:none;transition:background .25s}
+.ct + .ct{border-left:1px solid var(--line)}
+.ct:hover{background:rgba(201,169,110,.07)}
+.ct[hidden]{display:none}
+.ct small{font-size:.74rem;letter-spacing:.22em;color:var(--gold)}
+.ct b{font-family:var(--serif);font-weight:500;font-size:1.08rem;color:var(--ivory);font-variant-numeric:lining-nums tabular-nums;word-break:break-all}
+.ct span{font-size:.78rem;color:var(--muted)}
+@media (max-width:560px){.ct + .ct{border-left:0;border-top:1px solid var(--line)}}
+[data-need][hidden]{display:none!important}
+
 /* share / contact */
 .cta{padding:120px 0;text-align:center;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,.12),transparent 60%)}
 .cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.6vw,2.6rem);color:var(--ivory);line-height:1.4}
@@ -270,6 +305,7 @@ footer{padding:44px 0 calc(44px + env(safe-area-inset-bottom,0px));border-top:1p
       <div class="hero-actions rv">
         <a class="btn gold" href="#business">사업 영역 보기 <span class="arr">→</span></a>
         <a class="btn" href="#location">오시는 길</a>
+        <a class="btn" data-need="pdf" data-pdf href="#" download hidden>회사소개서 PDF <span class="arr">↓</span></a>
       </div>
     </div>
     <div class="scroll-cue" aria-hidden="true">SCROLL<span></span></div>
@@ -500,6 +536,11 @@ footer{padding:44px 0 calc(44px + env(safe-area-inset-bottom,0px));border-top:1p
         <a class="btn" href="https://www.plabsolution.com/" target="_blank" rel="noopener">공식 홈페이지 ↗</a>
       </div>
       <p class="msg" id="msg" aria-live="polite"></p>
+      <div class="contact rv" id="contact" hidden>
+        <a class="ct" data-need="phone" id="ct-phone" href="#" hidden><small>CALL</small><b></b><span>눌러서 바로 전화</span></a>
+        <a class="ct" data-need="email" id="ct-mail" href="#" hidden><small>EMAIL</small><b></b><span>눌러서 메일 보내기</span></a>
+        <a class="ct" data-need="pdf" data-pdf href="#" download hidden><small>BROCHURE</small><b>회사소개서</b><span>PDF 다운로드</span></a>
+      </div>
     </div>
   </section>
 </main>
@@ -567,6 +608,21 @@ footer{padding:44px 0 calc(44px + env(safe-area-inset-bottom,0px));border-top:1p
     window.addEventListener('resize',render);
     render();
   });
+
+  // 연락처·회사소개서·방문 통계 (window.PLAB 값이 있을 때만 표시)
+  (function(){
+    var c=window.PLAB||{};
+    [].forEach.call(document.querySelectorAll('[data-need]'),function(el){ el.hidden=!c[el.getAttribute('data-need')]; });
+    if(c.phone){ var a=document.getElementById('ct-phone'); a.href='tel:'+c.phone.replace(/[^0-9+]/g,''); a.querySelector('b').textContent=c.phone; }
+    if(c.email){ var m=document.getElementById('ct-mail'); m.href='mailto:'+c.email+'?subject='+encodeURIComponent('[plab.life] 문의드립니다'); m.querySelector('b').textContent=c.email; }
+    if(c.pdf){ [].forEach.call(document.querySelectorAll('[data-pdf]'),function(a){ a.href=c.pdf; a.setAttribute('download',''); }); }
+    document.getElementById('contact').hidden=!(c.phone||c.email||c.pdf);
+    function track(name,extra){ if(window.gtag) gtag('event',name,extra||{}); }
+    [].forEach.call(document.querySelectorAll('[data-pdf]'),function(a){ a.addEventListener('click',function(){ track('brochure_download'); }); });
+    var ph=document.getElementById('ct-phone'); if(ph) ph.addEventListener('click',function(){ track('contact_call'); });
+    var ml=document.getElementById('ct-mail'); if(ml) ml.addEventListener('click',function(){ track('contact_email'); });
+    var cl=document.getElementById('copy-link'); if(cl) cl.addEventListener('click',function(){ track('share_copy_link'); });
+  })();
 
   function fallback(t){ var x=document.createElement('textarea'); x.value=t; document.body.appendChild(x); x.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(x); }
   function copy(t){ if(navigator.clipboard&&navigator.clipboard.writeText){ return navigator.clipboard.writeText(t).catch(function(){fallback(t);}); } fallback(t); return Promise.resolve(); }
