@@ -286,7 +286,7 @@ img{max-width:100%}
 .msg{margin-top:10px;min-height:1.5em;font-size:15px;color:var(--p200)}
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr);gap:12px}
 @media (max-width:1100px){.contact{grid-template-columns:1fr 1fr}.contact .ct:nth-child(2){grid-column:span 2;order:-1}}
-@media (max-width:480px){.contact{grid-template-columns:1fr}.contact .ct:nth-child(2){grid-column:auto;order:0}}
+@media (max-width:480px){.contact{grid-template-columns:minmax(0,1fr)}.contact .ct:nth-child(2){grid-column:auto;order:0}}
 .contact[hidden]{display:none}
 .ct{display:flex;flex-direction:column;gap:4px;background:#fff;color:var(--g900);border-radius:var(--r-lg);padding:20px;text-decoration:none;transition:transform .15s,box-shadow .15s}
 .ct:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
@@ -294,7 +294,7 @@ img{max-width:100%}
 .ct small{font-size:13px;font-weight:700;color:var(--p600)}
 .ct b{font-size:17px;line-height:1.4;overflow-wrap:anywhere}
 .ct span{font-size:13px;color:var(--g500)}
-@media (max-width:900px){.band .wrap{grid-template-columns:1fr}}
+@media (max-width:900px){.band .wrap{grid-template-columns:minmax(0,1fr)}}
 
 /* footer */
 footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px calc(40px + env(safe-area-inset-bottom,0px));font-size:15px;color:var(--g700)}
@@ -420,6 +420,32 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
   .ct{padding:14px 16px}
   .ct b{font-size:16px}
   footer{padding-block:28px}
+}
+/* 좁은 화면 (갤럭시 폴드 접은 화면 등, 380px 이하) */
+@media (max-width:380px){
+  .wrap{padding-inline:14px}
+  .mnav{padding-inline:14px}
+  .hero h1{font-size:30px}
+  .hero .acts{grid-template-columns:minmax(0,1fr)}
+  .sec-hd h2{font-size:22px}
+  .vm p{font-size:16px}
+  .bz{padding:16px;grid-template-columns:minmax(0,1fr);gap:10px}
+  .svc-r b{font-size:24px}
+  .addr .row .btn{font-size:13px}
+  .mbar{gap:6px;padding-inline:8px}
+  .mbar a{font-size:14px;gap:4px}
+  .ct b{font-size:15px}
+}
+@media (max-width:330px){
+  .mbar a svg{display:none}
+  .hero h1{font-size:27px}
+}
+/* 모든 화면에서 단어 중간 끊김 방지 */
+.svc-r span,.logo-c small,.tm li span,.way p,.floor,.news-meta{word-break:keep-all}
+@media (max-width:720px){
+  .ft dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
+  .ft dl div{display:contents}
+  .share button{flex:none;white-space:nowrap}
 }
 /* 모바일 하단 고정 버튼 (회사소개서 · 오시는 길 · 전화) */
 .mbar{display:none}
