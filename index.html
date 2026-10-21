@@ -563,6 +563,25 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
   .facts dl div:nth-child(odd){padding-right:14px}
   .facts dl div:nth-child(even){padding-left:16px}
 }
+
+/* 주요 실적 — 대표 사례 + 함께한 곳 */
+.cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.case{background:#fff;border:1px solid var(--g200);border-top:3px solid var(--p600);border-radius:var(--r-lg);padding:24px 22px 26px;display:flex;flex-direction:column}
+.case-tag{align-self:flex-start;font-size:13px;font-weight:700;color:var(--p600);background:var(--p50);border-radius:var(--r-sm);padding:3px 8px}
+.case-tag.is-biz{color:var(--g700);background:var(--g100)}
+.case h3{margin-top:16px;font-size:20px;font-weight:700;line-height:1.35;word-break:keep-all}
+.case-what{margin-top:6px;font-size:16px;font-weight:600;color:var(--p700);word-break:keep-all}
+.case-desc{margin-top:14px;font-size:15px;line-height:1.6;color:var(--g700);word-break:keep-all}
+.also{margin:32px 0 0;background:#fff;border:1px solid var(--g200);border-radius:var(--r-xl);padding:8px 28px}
+.also-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--g100)}
+.also-row:last-child{border-bottom:0}
+.also dt{font-size:15px;font-weight:700;color:var(--g900)}
+.also dd{margin:0}
+.also ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 0}
+.also li{font-size:15px;color:var(--g700)}
+.also li:not(:last-child)::after{content:"·";margin:0 10px;color:var(--g300)}
+@media (max-width:1100px){.cases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cases{grid-template-columns:1fr;gap:12px}.case{padding:20px 18px}.also{padding:4px 18px}.also-row{grid-template-columns:1fr;gap:6px}}
 </style>
 </head>
 <body>
@@ -717,48 +736,37 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
       <div class="sec-hd">
         <div><p class="kicker"><span>04</span>주요 실적</p><h2>함께한 기관과 파트너</h2></div>
       </div>
-      <div class="ref-group" data-group="gov">
-        <div class="ref-head">
-          <h3 class="ref-label">공공기관 · 지자체 <em></em></h3>
-          <div class="ref-ctrl" hidden>
-            <button class="ref-btn prev" type="button" aria-label="이전 목록"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button class="ref-btn next" type="button" aria-label="다음 목록"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-          </div>
-        </div>
-        <div class="logos">
-          <div class="logo-c"><b>소상공인시장진흥공단</b><small>소상공인 AI활용지원사업</small></div>
-          <div class="logo-c"><b>서울신용보증재단</b><small>소상공인 멘토링</small></div>
-          <div class="logo-c"><b>은평구</b></div>
-          <div class="logo-c"><b>서울특별시</b></div>
-          <div class="logo-c"><b>인천광역시</b></div>
-          <div class="logo-c"><b>안산시</b></div>
-          <div class="logo-c"><b>한국농수산식품유통공사</b></div>
-          <div class="logo-c"><b>한국데이터산업진흥원</b></div>
-          <div class="logo-c"><b>밀양시문화도시센터</b></div>
-        </div>
+      <div class="cases">
+        <article class="case" data-ref="gov">
+          <span class="case-tag">공공</span>
+          <h3>소상공인시장진흥공단</h3>
+          <p class="case-what">소상공인 AI활용지원사업</p>
+          <p class="case-desc">혁신소상공인 AI활용지원사업의 멘토링을 운영합니다.</p>
+        </article>
+        <article class="case" data-ref="gov">
+          <span class="case-tag">공공</span>
+          <h3>서울신용보증재단</h3>
+          <p class="case-what">소상공인 멘토링</p>
+          <p class="case-desc">서울 지역 소상공인을 대상으로 멘토링을 진행했습니다.</p>
+        </article>
+        <article class="case" data-ref="biz">
+          <span class="case-tag is-biz">프랜차이즈</span>
+          <h3>피자알볼로</h3>
+          <p class="case-what">가맹영업 대행</p>
+          <p class="case-desc">브랜드의 가맹영업을 대행했습니다.</p>
+        </article>
+        <article class="case" data-ref="biz">
+          <span class="case-tag is-biz">프랜차이즈</span>
+          <h3>샤이바나</h3>
+          <p class="case-what">프차톡 도입</p>
+          <p class="case-desc">AI 가맹 상담 솔루션 프차톡을 도입했습니다.</p>
+        </article>
       </div>
-      <div class="ref-group" data-group="biz">
-        <div class="ref-head">
-          <h3 class="ref-label">프랜차이즈 · 기업 <em></em></h3>
-          <div class="ref-ctrl" hidden>
-            <button class="ref-btn prev" type="button" aria-label="이전 목록"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button class="ref-btn next" type="button" aria-label="다음 목록"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-          </div>
-        </div>
-        <div class="logos">
-          <div class="logo-c"><b>피자알볼로</b><small>가맹영업 대행</small></div>
-          <div class="logo-c"><b>샤이바나</b><small>프차톡 도입</small></div>
-          <div class="logo-c"><b>콩불</b><small>창업 컨설팅</small></div>
-          <div class="logo-c"><b>1830피자</b><small>교육</small></div>
-          <div class="logo-c"><b>베러댄와플</b><small>교육</small></div>
-          <div class="logo-c"><b>쿠엔즈버킷</b><small>교육</small></div>
-          <div class="logo-c"><b>팔공티</b><small>교육</small></div>
-          <div class="logo-c"><b>쟁반집</b><small>교육</small></div>
-          <div class="logo-c"><b>맛깔참죽</b><small>교육</small></div>
-          <div class="logo-c"><b>푸드얍</b><small>교육</small></div>
-          <div class="logo-c"><b>베브릿지</b><small>교육</small></div>
-        </div>
-      </div>
+      <dl class="also">
+          <div class="also-row"><dt>공공기관 · 지자체</dt><dd><ul><li data-ref="gov">은평구</li><li data-ref="gov">서울특별시</li><li data-ref="gov">인천광역시</li><li data-ref="gov">안산시</li><li data-ref="gov">한국농수산식품유통공사</li><li data-ref="gov">한국데이터산업진흥원</li><li data-ref="gov">밀양시문화도시센터</li></ul></dd></div>
+          <div class="also-row"><dt>프랜차이즈 창업 컨설팅</dt><dd><ul><li data-ref="biz">콩불</li></ul></dd></div>
+          <div class="also-row"><dt>프랜차이즈 교육</dt><dd><ul><li data-ref="biz">1830피자</li><li data-ref="biz">베러댄와플</li><li data-ref="biz">쿠엔즈버킷</li><li data-ref="biz">팔공티</li><li data-ref="biz">쟁반집</li><li data-ref="biz">맛깔참죽</li><li data-ref="biz">푸드얍</li><li data-ref="biz">베브릿지</li></ul></dd></div>
+      </dl>
     </div>
   </section>
 
@@ -913,98 +921,6 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
     links.forEach(function(a){ var s=document.querySelector(a.getAttribute('href')); if(s) so.observe(s); });
   }
 
-  // 주요 실적: 카드가 넘치면 천천히 자동으로 흐르고, 마우스·손가락으로 끌어서 빠르게 넘길 수 있음
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  [].slice.call(document.querySelectorAll('.ref-group')).forEach(function(g){
-    var track=g.querySelector('.logos'), ctrl=g.querySelector('.ref-ctrl'),
-        prev=g.querySelector('.prev'), next=g.querySelector('.next'),
-        total=g.querySelector('.ref-label em'),
-        orig=[].slice.call(track.children), cards=orig.length;
-    if(total) total.textContent=cards;
-    var tgt=document.querySelector('[data-count="'+g.getAttribute('data-group')+'"]'); if(tgt) tgt.textContent=cards;
-
-    var SPEED=28;               // 자동 이동 속도 (px/초) — 숫자를 키우면 빨라짐
-    var RESUME=2500;            // 손 뗀 뒤 다시 흐르기까지 (ms)
-    var pos=0, loopW=0, active=false, paused=false, visible=true, holdUntil=0, last=0, anim=null, cloned=false;
-
-    function per(){ return parseInt(getComputedStyle(track).getPropertyValue('--per'),10)||5; }
-    function gap(){ return parseFloat(getComputedStyle(track).columnGap)||0; }
-    function cardW(){ return orig[0].getBoundingClientRect().width+gap(); }
-    function setPos(x){ if(loopW>0){ x=((x%loopW)+loopW)%loopW; } pos=x; track.scrollLeft=x; }
-    function hold(ms){ holdUntil=performance.now()+(ms||RESUME); }
-
-    function setup(){
-      var many=cards>per();
-      ctrl.hidden=!many;
-      if(many && !cloned){
-        orig.forEach(function(n){ var c=n.cloneNode(true); c.setAttribute('aria-hidden','true'); c.setAttribute('data-clone',''); track.appendChild(c); });
-        cloned=true;
-      }
-      if(!many && cloned){
-        [].slice.call(track.querySelectorAll('[data-clone]')).forEach(function(n){ n.remove(); });
-        cloned=false;
-      }
-      active=many;
-      track.classList.toggle('flow',many);
-      loopW=many? cardW()*cards : 0;
-      setPos(pos);
-    }
-
-    function tick(t){
-      if(!last) last=t;
-      var dt=Math.min(64,t-last); last=t;
-      if(active && !reduce && !paused && visible && !anim && t>holdUntil){ setPos(pos+SPEED*dt/1000); }
-      requestAnimationFrame(tick);
-    }
-
-    // < > 버튼: 한 화면만큼 부드럽게 이동
-    function glide(dir){
-      if(!active) return;
-      var from=pos, dist=dir*cardW()*per(), t0=performance.now(), dur=520;
-      anim=true; hold();
-      (function step(now){
-        var k=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-k,3);
-        setPos(from+dist*e);
-        if(k<1) requestAnimationFrame(step); else { anim=null; hold(); }
-      })(t0);
-    }
-    prev.addEventListener('click',function(){ glide(-1); });
-    next.addEventListener('click',function(){ glide(1); });
-
-    // 마우스 끌기
-    var down=false, sx=0, sp=0, moved=0;
-    track.addEventListener('pointerdown',function(e){
-      if(e.pointerType!=='mouse' || e.button!==0) return;
-      down=true; sx=e.clientX; sp=pos; moved=0; paused=true;
-      try{ track.setPointerCapture(e.pointerId); }catch(_){}
-    });
-    track.addEventListener('pointermove',function(e){
-      if(!down) return;
-      var dx=e.clientX-sx; moved=Math.max(moved,Math.abs(dx));
-      if(moved>4) track.classList.add('drag');
-      setPos(sp-dx);
-    });
-    function up(){ if(!down) return; down=false; paused=false; track.classList.remove('drag'); hold(); }
-    track.addEventListener('pointerup',up); track.addEventListener('pointercancel',up);
-
-    // 손가락으로 밀기 (모바일 기본 스크롤 사용)
-    track.addEventListener('touchstart',function(){ paused=true; },{passive:true});
-    track.addEventListener('touchend',function(){ paused=false; hold(); },{passive:true});
-    track.addEventListener('scroll',function(){
-      if(Math.abs(track.scrollLeft-pos)>1){ pos=track.scrollLeft; if(loopW && (pos>=loopW || pos<=0)) setPos(pos); hold(); }
-    },{passive:true});
-
-    // 마우스를 올리면 잠시 멈춤 (읽기 편하게)
-    track.addEventListener('mouseenter',function(){ if(!down) paused=true; });
-    track.addEventListener('mouseleave',function(){ if(!down){ paused=false; hold(800); } });
-    track.addEventListener('focusin',function(){ paused=true; });
-    track.addEventListener('focusout',function(){ paused=false; });
-
-    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ visible=es[0].isIntersecting; }).observe(track); }
-    document.addEventListener('visibilitychange',function(){ last=0; });
-    var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(setup,120); });
-    setup(); requestAnimationFrame(tick);
-  });
 
   // 연락처·회사소개서·방문 통계 (window.PLAB 값이 있을 때만 표시)
   var c=window.PLAB||{};
@@ -1048,6 +964,13 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
   var ab=document.getElementById('copy-addr');
   ab.addEventListener('click',function(){ copy('서울특별시 중구 퇴계로36길 2 동국대학교 충무로 본관 810호').then(function(){ ab.textContent='복사됨 ✓'; setTimeout(function(){ab.textContent='주소 복사';},2000); }); });
 })();
+</script>
+<script>
+  // 주요 실적 개수 → 첫 화면 "협력 기관·브랜드 수"에 자동 반영
+  ['gov','biz'].forEach(function(k){
+    var n=document.querySelectorAll('[data-ref="'+k+'"]').length;
+    [].forEach.call(document.querySelectorAll('[data-count="'+k+'"],[data-total="'+k+'"]'),function(el){ el.textContent=n; });
+  });
 </script>
 </body>
 </html>
