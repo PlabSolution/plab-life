@@ -118,7 +118,7 @@ img{max-width:100%}
 
 /* hero — 단색 남색 + 고딕(그라데이션·명조 제거) */
 .hero{position:relative;color:#C9D8F5;background:#0A2A6B}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:64px;align-items:center;padding-block:104px 96px;min-height:min(74svh,680px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:64px;align-items:center;padding-block:104px 96px;min-height:min(74svh,680px)}
 .chip{display:inline-block;font-size:15px;font-weight:600;letter-spacing:.02em;color:#8FB4FF;background:none;border:0;padding:0;height:auto}
 .hero h1{margin-top:20px;font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1.25;letter-spacing:-.035em;color:#fff}
 .hero h1 em{font-style:normal;color:#8FB4FF}
@@ -135,7 +135,7 @@ img{max-width:100%}
 .facts dd{color:#fff}
 .facts dd small{color:#A9C1EC}
 .facts p{color:#8AA5D6}
-.hero .lead{margin-top:24px;font-size:19px;line-height:1.65;max-width:34em}
+.hero .lead{margin-top:24px;font-size:19px;line-height:1.65;max-width:44em}
 .hero .acts{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px}
 .hero .btn{border-radius:8px}
 .facts dl{margin-top:18px;display:grid;grid-template-columns:1fr 1fr}
@@ -622,7 +622,7 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
       <div>
         <span class="chip rv">프랜차이즈 · 소상공인 비즈니스 연구소</span>
         <h1 class="rv">창업의 전 과정을<br><em>설계하는</em><br>비즈니스 연구소</h1>
-        <p class="lead rv">프랩은 프랜차이즈 본사의 가맹 확장부터 예비창업자 교육, 소상공인의 AI 도입까지 창업의 시작과 성장을 함께 설계합니다.</p>
+        <p class="lead rv">프랩은 창업의 시작과 성장을 함께 설계합니다.<br>프랜차이즈 본사의 가맹 확장부터 예비창업자 교육, 소상공인의 AI 도입까지 함께합니다.</p>
         <div class="acts rv">
           <a class="btn btn-pri" data-need="pdf" data-pdf href="#" download hidden>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>회사소개서 다운로드
@@ -630,16 +630,6 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
           <a class="btn btn-sec" href="#business">사업 영역 보기</a>
         </div>
       </div>
-      <aside class="facts rv" aria-label="한눈에 보는 프랩">
-        <h2>한눈에 보는 프랩</h2>
-        <dl>
-          <div><dt>창업 상담</dt><dd class="num">1,200<small>건 이상</small></dd></div>
-          <div><dt>가맹 개설</dt><dd class="num">80<small>건 이상</small></dd></div>
-          <div><dt>협력 공공기관·지자체</dt><dd class="num"><span data-count="gov">0</span><small>곳</small></dd></div>
-          <div><dt>협력 프랜차이즈·기업</dt><dd class="num"><span data-count="biz">0</span><small>곳</small></dd></div>
-        </dl>
-        <p>상담·개설 실적: 2026년 1월 언론 보도 기준 · 협력 기관·브랜드: 주요 실적 목록 기준</p>
-      </aside>
     </div>
   </section>
 
@@ -683,20 +673,20 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
       </div>
       <div class="biz">
         <article class="bz">
-          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
-          <div><p class="no">사업 01<span class="aud">대상 · 프랜차이즈 본사</span></p><h3>가맹영업 전속대행</h3><p>프랜차이즈 본사의 가맹점 확장을 전담해 상담부터 계약까지 진행합니다.</p></div>
-        </article>
-        <article class="bz">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 12l3-3 3 2 4-4"/></svg></span>
-          <div><p class="no">사업 02<span class="aud">대상 · 예비창업자</span></p><h3>창업 온라인 플랫폼</h3><p>예비창업자에게 브랜드 정보와 상권 분석을 제공하고 맞는 브랜드를 연결합니다.</p></div>
-        </article>
-        <article class="bz">
-          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 8v6"/></svg></span>
-          <div><p class="no">사업 03<span class="aud">대상 · 예비 점주 · 자영업자</span></p><h3>교육 · 컨설팅</h3><p>예비 점주와 자영업자를 위한 창업교육과 현장 컨설팅을 운영합니다.</p><div class="tags"><span>프랩아카데미</span></div></div>
+          <div><p class="no">사업 01<span class="aud">대상 · 예비창업자</span></p><h3>창업 온라인 플랫폼</h3><p>예비창업자에게 브랜드 정보와 상권 분석을 제공하고 맞는 브랜드를 연결합니다.</p></div>
         </article>
         <article class="bz">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="12" rx="3"/><path d="M12 3v4"/><circle cx="9.5" cy="13" r="1"/><circle cx="14.5" cy="13" r="1"/><path d="M2 12v3M22 12v3"/></svg></span>
-          <div><p class="no">사업 04<span class="aud">대상 · 소상공인 · 지자체 · 공공기관</span></p><h3>소상공인 AI · 지원사업</h3><p>정부·지자체 지원사업을 통해 소상공인의 AI 활용과 경영 개선을 돕습니다.</p><div class="tags"><span>소상공인 AI활용지원사업</span><span>AI 바우처 사업</span><span>서울신용보증재단 멘토링</span></div></div>
+          <div><p class="no">사업 02<span class="aud">대상 · 소상공인 · 지자체 · 공공기관</span></p><h3>소상공인 AI · 지원사업</h3><p>정부·지자체 지원사업을 통해 소상공인의 AI 활용과 경영 개선을 돕습니다.</p><div class="tags"><span>소상공인 AI활용지원사업</span><span>AI 바우처 사업</span><span>서울신용보증재단 멘토링</span></div></div>
+        </article>
+        <article class="bz">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+          <div><p class="no">사업 03<span class="aud">대상 · 프랜차이즈 본사</span></p><h3>가맹영업 전속대행</h3><p>프랜차이즈 본사의 가맹점 확장을 전담해 상담부터 계약까지 진행합니다.</p></div>
+        </article>
+        <article class="bz">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 8v6"/></svg></span>
+          <div><p class="no">사업 04<span class="aud">대상 · 예비 점주 · 자영업자</span></p><h3>교육 · 컨설팅</h3><p>예비 점주와 자영업자를 위한 창업교육과 현장 컨설팅을 운영합니다.</p><div class="tags"><span>프랩아카데미</span></div></div>
         </article>
       </div>
     </div>
@@ -851,11 +841,11 @@ footer{background:var(--g50);border-top:1px solid var(--g100);padding-block:40px
         <div class="ceo"><small>대표이사</small><b>장진호</b></div>
         <div class="org-v"></div>
         <div class="teams t4">
-          <div class="tm"><h3>운영기획팀<small>경영지원 · 사업운영</small></h3><ul><li class="pp"><span class="av" aria-hidden="true">정</span><span><b>정성우</b><em>팀장</em></span></li><li class="pp"><span class="av" aria-hidden="true">손</span><span><b>손병의</b><em>대리</em></span></li><li class="duty">사업 운영 · 정부지원사업 관리 · 회계 · 인사 · 총무</li></ul></div>
-          <div class="tm"><h3>영업팀<small>가맹영업</small></h3><ul><li class="pp"><span class="av" aria-hidden="true">백</span><span><b>백승일</b><em>팀장</em></span></li><li class="duty">가맹영업 전속대행 · 프차톡 영업</li></ul></div>
-          <div class="tm"><h3>소상공인팀<small>소상공인 지원</small></h3><ul><li class="pp"><span class="av" aria-hidden="true">김</span><span><b>김지연</b><em>팀장</em></span></li><li class="duty">소상공인 AI · 지원사업 · 교육</li></ul></div>
-          <div class="tm"><h3>마케팅팀<small>브랜드 · 홍보</small></h3><ul><li class="pp"><span class="av av-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a3 3 0 0 1 0 6M18 6a7 7 0 0 1 0 12"/></svg></span><span><b>브랜드 마케팅</b></span></li><li class="pp"><span class="av av-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span><b>온라인 홍보</b></span></li><li class="duty">브랜드 · 콘텐츠 기획 · SNS · 온라인 채널 운영</li></ul></div>
-          <div class="tm"><h3>개발팀<small>AI 서비스 개발</small></h3><ul><li class="pp"><span class="av" aria-hidden="true">정</span><span><b>정종훈</b><em>팀장</em></span></li><li class="duty">프차톡 · 창업 플랫폼 개발 및 운영</li></ul></div>
+          <div class="tm"><h3>운영기획팀<small>경영지원 · 사업운영</small></h3><ul><li class="duty">사업 운영 · 정부지원사업 관리 · 회계 · 인사 · 총무</li></ul></div>
+          <div class="tm"><h3>영업팀<small>가맹영업</small></h3><ul><li class="duty">가맹영업 전속대행 · 프차톡 영업</li></ul></div>
+          <div class="tm"><h3>소상공인팀<small>소상공인 지원</small></h3><ul><li class="duty">소상공인 AI · 지원사업 · 교육</li></ul></div>
+          <div class="tm"><h3>마케팅팀<small>브랜드 · 홍보</small></h3><ul><li class="duty">브랜드 · 콘텐츠 기획 · SNS · 온라인 채널 운영</li></ul></div>
+          <div class="tm"><h3>개발팀<small>AI 서비스 개발</small></h3><ul><li class="duty">프차톡 · 창업 플랫폼 개발 및 운영</li></ul></div>
         </div>
       </div>
     </div>
